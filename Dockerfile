@@ -13,5 +13,4 @@ RUN sed -i 's@CLIENT_ID@'"$CLIENT_ID"'@' /root/.config/rclone/rclone.conf && sed
     && sed -i 's@ROOT_FOLDER@'"$ROOT_FOLDER"'@' /root/.config/rclone/rclone.conf && mkdir -p /vconvert && chmod +x /root/check_traffic.py
 CMD rclone mount gdrive:/ /vconvert --umask 0000 --default-permissions --allow-other --allow-non-empty \
     --transfers 2 --vfs-cache-mode full --vfs-read-chunk-size-limit 2048M --vfs-cache-max-size 4096M --buffer-size 4096M \
-    --drive-chunk-size 2048M --low-level-retries 300 --drive-acknowledge-abuse --daemon && sleep 3s && python3 -m app.run \
-    && python3 /root/check_traffic.py
+    --drive-chunk-size 2048M --low-level-retries 300 --drive-acknowledge-abuse --daemon && sleep 3s && python3 -m app.run
