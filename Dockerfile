@@ -7,7 +7,6 @@ ARG TEAM_DRIVE=a
 ARG ROOT_FOLDER=a
 RUN apt-get install -y fuse unzip curl && curl https://rclone.org/install.sh | bash
 COPY ./rclone.conf /root/.config/rclone/rclone.conf
-COPY ./check_traffic.py /root/check_traffic.py
 RUN sed -i 's@CLIENT_ID@'"$CLIENT_ID"'@' /root/.config/rclone/rclone.conf && sed -i 's@CLIENT_SECRET@'"$CLIENT_SECRET"'@' /root/.config/rclone/rclone.conf \
     && sed -i 's@TOKEN@'"$TOKEN"'@' /root/.config/rclone/rclone.conf && sed -i 's@TEAM_DRIVE@'"$TEAM_DRIVE"'@' /root/.config/rclone/rclone.conf \
     && sed -i 's@ROOT_FOLDER@'"$ROOT_FOLDER"'@' /root/.config/rclone/rclone.conf && mkdir -p /vconvert && chmod +x /root/check_traffic.py
