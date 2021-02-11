@@ -3,7 +3,7 @@ name: runner
 on:
   workflow_dispatch:
   schedule:
-  - cron:  '14,44 * * * *'
+  - cron:  '44 * * * *'
 
 jobs:
   runner:
